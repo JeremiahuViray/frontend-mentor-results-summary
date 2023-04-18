@@ -1,69 +1,117 @@
-/*
-  1. Use a more-intuitive box-sizing model.
-*/
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+:root {
+  /*Primary Colors*/
+  --light-red: hsl(0, 100%, 67%);
+  --orange-yellow: hsl(39, 100%, 56%);
+  --green-teal: hsl(166, 100%, 37%);
+  --cobalt-blue: hsl(234, 85%, 45%);
+
+  /* gradient colors */
+  --background-slate-blue: hsl(252, 100%, 67%);
+  --background-royal-blue: hsl(241, 81%, 54%);
+
+  --circle-violet: hsla(256, 72%, 46%, 1);
+  --circle-persian: hsla(241, 72%, 46%, 0);
 }
-/*
-    2. Remove default margin
-  */
-* {
+.container {
+  min-height: 50vh;
+  font-family: "Hanken Grotesk", sans-serif;
   margin: 0;
+  padding: 0;
 }
-/*
-    3. Allow percentage-based heights in the application
-  */
-html,
-body {
-  height: 100%;
+.results {
+  display: grid;
+  text-align: center;
+  align-items: center;
+  align-content: start;
+  gap: 1rem;
+  background: linear-gradient(
+    var(--background-slate-blue),
+    var(--background-royal-blue)
+  );
+  color: white;
+  padding: 1.5rem 4rem;
+  border-radius: 0 0 2rem 2rem;
 }
-/*
-    Typographic tweaks!
-    4. Add accessible line-height
-    5. Improve text rendering
-  */
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+.result-circle {
+  border-radius: 100%;
+  margin: auto;
+  width: 9rem;
+  height: 9rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(var(--circle-violet), var(--circle-persian));
 }
-/*
-    6. Improve media defaults
-  */
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
+.scored {
+  font-size: 4rem;
 }
-/*
-    7. Remove built-in form typography styles
-  */
-input,
-button,
-textarea,
-select {
-  font: inherit;
+.summary {
+  display: grid;
+  text-align: start;
+  gap: 2rem;
+  padding: 2rem;
 }
-/*
-    8. Avoid text overflows
-  */
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
+.module {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: 0.5rem;
 }
-/*
-    9. Create a root stacking context
-  */
-#root,
-#__next {
-  isolation: isolate;
+.reaction {
+  background: hsl(0, 100%, 67%, 0.1);
+  color: var(--light-red);
+}
+.memory {
+  background: hsl(39, 100%, 56%, 0.1);
+  color: var(--orange-yellow);
+}
+.verbal {
+  background: hsl(166, 100%, 37%, 0.1);
+  color: var(--green-teal);
+}
+.visual {
+  background: hsl(234, 85%, 45%, 0.1);
+  color: var(--cobalt-blue);
+}
+.module-container {
+  display: grid;
+  gap: 1rem;
+}
+.btn {
+  background: darkblue;
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 2.5rem;
+}
+
+@media screen and (min-width: 600px) {
+  .body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container {
+    max-width: 40rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-family: "Hanken Grotesk", sans-serif;
+    margin-top: 17vh;
+    margin-inline: auto;
+    padding: 0;
+    box-shadow: 5px 5px 20px lightgray;
+    border-radius: 2rem;
+    overflow: hidden;
+  }
+  .results {
+    border-radius: 2rem;
+    padding: 2rem 3rem;
+    gap: 2rem;
+}
+
+.module-text {
+  display: flex;
+  gap: 0.5rem;
 }
